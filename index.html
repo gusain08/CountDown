@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountDown</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        
+
+.conuntdown-counter {
+    width: 100%;
+    display: block;
+    margin-bottom: 1.25rem;
+  text-align:center;
+}
+
+.conuntdown-counter li {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: yellow;
+    margin: 0 0.32rem;
+    border-radius: 0.3rem;
+    text-transform: capitalize;
+}
+    </style>
+    <div class="count-down-section pt-4">
+                <ul class="list-unstyled conuntdown-counter">
+                  <li><span class="fs-1 d-block" id="days">00</span>days</li>
+                  <li><span class="fs-1 d-block" id="hours">00</span>hours</li>
+                  <li><span class="fs-1 d-block" id="min">00</span>Min</li>
+                  <li><span class="fs-1 d-block" id="secs">00</span>sec</li>
+                </ul>
+              </div>
+              <script>
+                // conunter js
+
+
+let daysItem = document.querySelector("#days");
+let hrsitems = document.querySelector("#hours");
+let minsitems = document.querySelector("#min");
+let secsItems = document.querySelector("#secs");
+
+let countdown = ()=>{
+    let newDate = new Date("1 january 2024");
+    let currentDate = new Date();
+    let myDate  = newDate - currentDate;
+
+    let days  = Math.floor(myDate / 1000 / 60 / 60 /24);
+    let hrs  = Math.floor(myDate / 1000 / 60 / 60 ) % 24;
+    let mins  = Math.floor(myDate / 1000 / 60) % 24;
+    let secs  = Math.floor(myDate / 1000) % 60;
+    
+    daysItem.innerHTML = days;
+    hrsitems.innerHTML = hrs;
+    minsitems.innerHTML = mins;
+    secsItems.innerHTML = secs;
+} 
+countdown();
+setInterval(countdown , 1000);
+
+              </script>
+</body>
+</html>
